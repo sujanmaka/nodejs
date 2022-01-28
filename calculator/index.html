@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="index.css" type="text/css" rel="stylesheet" />
+
+</head>
+
+<body>
+    Select the operation:
+    <form method="POST">
+        <select name="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select>
+        <div>
+            <p>Enter two numbers</p>
+            <input type="text" name="first" required/><br/>
+            <input type="text" name="second" required/><br/>
+            <input type="submit" value="Calculate" />
+        </div>
+    </form>
+
+</body>
+
+</html>
