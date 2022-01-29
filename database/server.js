@@ -14,18 +14,18 @@ app.get('/', function(req, res) {
 
     sql.connect(config, function(err) {
         if (err) console.log(err);
-        // create Request object
-        var request = new sql.Request();
+        // // create Request object
+        // var request = new sql.Request();
 
-        request.query('select * from Student', function(err, recordset) {
-            if (err) console.log(err)
-                // send records as a response
-            res.send(recordset);
-        });
+        // request.query('select * from Student', function(err, recordset) {
+        //     if (err) console.log(err)
+        //         // send records as a response
+        //     res.send(recordset);
+        // });
     });
 
 });
 
-var server = app.listen(5000, function() { // start the server
+var server = app.listen(8080, function() { // start the server
     console.log('Server is running..');
 });
