@@ -1,28 +1,24 @@
 var express = require('express');
 var app = express();
 app.get('/', function(req, res) {
-    var sql = require("mssql");
-    // config for your database
-    var config = {
-        user: 'sa',
-        password: 'mypassword',
-        server: 'localhost',
-        database: 'SchoolDB',
-        port: 8090,
-        options: { trustServerCertificate: true }
-    };
+    var mysql = require('mysql')
+    var connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: 's9808075859',
+        database: 'sujan'
+    })
 
-    sql.connect(config, function(err) {
-        if (err) console.log(err);
-        // // create Request object
-        // var request = new sql.Request();
+    connection.connect();
 
-        // request.query('select * from Student', function(err, recordset) {
-        //     if (err) console.log(err)
-        //         // send records as a response
-        //     res.send(recordset);
-        // });
-    });
+    connection.query('SELECT * from Persons', function(err, rows, fields) {
+        if (err) throw err
+
+        console.log('The solution is: ', rows[0])
+    })
+
+    connection.end();
+    res.end();
 
 });
 

@@ -16,8 +16,12 @@ html(lang="en")
             else
                 p Guess the next number in the sequences
                 p #{sequence}
+                - var score = score;
+                - var count = count;
                 form(method="post")
                     label(for="answer") Your Answer:
                     input(id= "answer" type="text" name="answer" required)
+                    input( type="hidden" name="score" value=score)
+                    input(type="hidden" name="count" value=count)
                     br
                     button(type="submit") Submit

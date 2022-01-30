@@ -7,34 +7,30 @@ var nums = {
 };
 
 var keys = Object.keys(nums);
-
-var score = 0;
-var count = 0;
-var sequence = keys[count];
+var sequence = keys[0];
 ``
-var isComplete = false;
 
 function checkAnswer(req, res) {
-    if (req.body.answer == nums[sequence]) {
-        score++;
+    var isComplete = false;
+
+    if (req.body.answer == nums[keys[req.body.count]]) {
+        req.body.score = parseInt(req.body.score) + 1;
     }
-    count++;
-    if (count == 5) {
+    if (parseInt(req.body.count) + 1 == 5) {
         isComplete = true;
     } else {
-        sequence = keys[count];
+        sequence = keys[req.body.count];
     }
     res.render("quiz.pug", {
-        score: score,
-        sequence: sequence,
+        score: req.body.score,
+        sequence: keys[parseInt(req.body.count) + 1],
         isComplete: isComplete,
-        count: count
+        count: parseInt(req.body.count) + 1
     });
 }
 
 
 module.exports = {
     sequence,
-    score,
     checkAnswer
 }

@@ -6,7 +6,7 @@ app.use(express.static(__dirname));
 app.set("view engine", "jade");
 
 app.get("/", function(req, res) {
-    res.render("quiz.pug", { score: quizService.score, sequence: quizService.sequence });
+    res.render("quiz.pug", { score: 0, count: 0, sequence: quizService.sequence });
 })
 
 app.post("/", function(req, res) {
